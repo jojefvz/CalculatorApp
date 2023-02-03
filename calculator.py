@@ -19,10 +19,14 @@ def erase():
 
 def plus():
     num1 = e.get()
+    global first_num
+    first_num = int(num1)
     e.delete(0, END)
 
 def equals():
-    return
+    num2 = e.get()
+    e.delete(0, END)
+    e.insert(0, first_num + int(num2))
 
 #Define buttons
 button_1 = Button(root, text='1', padx=40, pady=20, command=lambda: button_click(1))
@@ -36,7 +40,7 @@ button_8 = Button(root, text='8', padx=40, pady=20, command=lambda: button_click
 button_9 = Button(root, text='9', padx=40, pady=20, command=lambda: button_click(9))
 button_0 = Button(root, text='0', padx=40, pady=20, command=lambda: button_click(0))
 button_plus = Button(root, text='+', padx=40, pady=20, command= plus)
-button_equals = Button(root, text='=', padx=40, pady=20, command=lambda: equals())
+button_equals = Button(root, text='=', padx=40, pady=20, command=equals)
 button_clear = Button(root, text='Clear', padx=151, pady=20, command= erase)
 
 
